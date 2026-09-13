@@ -1,0 +1,2 @@
+import { createFileRoute } from "@tanstack/react-router"; import { OverviewDoc } from "@/components/doc-pages"; import { routeHead } from "@/lib/synra";
+export const Route=createFileRoute("/docs/overview")({head:()=>routeHead("SYNRA Overview — Documentation","Understand SYNRA, Synchronized Value Rails, the ecosystem and the Financial Grid.","/docs/overview"),component:OverviewDoc});

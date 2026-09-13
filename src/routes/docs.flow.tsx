@@ -1,0 +1,2 @@
+import { createFileRoute } from "@tanstack/react-router"; import { ModuleDoc } from "@/components/doc-pages"; import { routeHead } from "@/lib/synra";
+export const Route=createFileRoute("/docs/flow")({head:()=>routeHead("SYNRA FLOW — Documentation","The planned SYNRA liquidity movement and routing layer.","/docs/flow"),component:()=> <ModuleDoc kind="flow"/>});

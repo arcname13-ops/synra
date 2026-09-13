@@ -1,0 +1,2 @@
+import { createFileRoute } from "@tanstack/react-router"; import { VisionDoc } from "@/components/doc-pages"; import { routeHead } from "@/lib/synra";
+export const Route=createFileRoute("/docs/vision")({head:()=>routeHead("A More Open Economy — SYNRA Vision","Explore SYNRA's vision for global value, programmable finance and open financial infrastructure.","/docs/vision"),component:VisionDoc});

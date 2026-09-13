@@ -1,0 +1,2 @@
+import { createFileRoute } from "@tanstack/react-router"; import { DisclaimerDoc } from "@/components/doc-pages"; import { routeHead } from "@/lib/synra";
+export const Route=createFileRoute("/docs/disclaimer")({head:()=>routeHead("SYNRA Disclaimer — Documentation","Important information about SYNRA's independence, token information and user responsibility.","/docs/disclaimer"),component:DisclaimerDoc});
