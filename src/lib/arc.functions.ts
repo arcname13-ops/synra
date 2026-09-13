@@ -28,20 +28,21 @@ export type ArcState = {
 const SAMPLE = 12;
 const hex = (v: string | undefined) => (v ? Number.parseInt(v, 16) : 0);
 
-async function rpc(url: string, calls: { method: string; params: unknown[] }[]) {
+async function rpcOne(url: string, method: string, params: unknown[]) {
   const res = await fetch(url, {
     method: "POST",
     headers: { "content-type": "application/json" },
-    body: JSON.stringify(calls.map((c, i) => ({ jsonrpc: "2.0", id: i, ...c }))),
+    body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params }),
   });
   if (!res.ok) throw new Error(`Arc RPC responded with ${res.status}`);
-  const json = (await res.json()) as { id: number; result?: unknown; error?: { message: string } }[];
-  const out: unknown[] = [];
-  for (const entry of json) {
-    if (entry.error) throw new Error(entry.error.message);
-    out[entry.id] = entry.result;
-  }
-  return out;
+  const json = (await res.json()) as { result?: unknown; error?: { message: string } };
+  if (json.error) throw new Error(json.error.message);
+  return json.result;
+}
+
+// Infura's Arc endpoint rejects JSON-RPC batches, so calls are issued individually.
+async function rpc(url: string, calls: { method: string; params: unknown[] }[]) {
+  return Promise.all(calls.map((c) => rpcOne(url, c.method, c.params)));
 }
 
 async function usdcPrice(): Promise<number | null> {
