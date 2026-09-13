@@ -1,0 +1,2 @@
+import { createFileRoute } from "@tanstack/react-router"; import { TokenDoc } from "@/components/doc-pages"; import { routeHead } from "@/lib/synra";
+export const Route=createFileRoute("/docs/token")({head:()=>routeHead("$SYNRA Token — Documentation","Official SYNRA token information. Network: Arc. Contract, tokenomics and utility: coming soon.","/docs/token"),component:TokenDoc});

@@ -1,0 +1,2 @@
+import { createFileRoute } from "@tanstack/react-router"; import { ChangelogDoc } from "@/components/doc-pages"; import { routeHead } from "@/lib/synra";
+export const Route=createFileRoute("/docs/changelog")({head:()=>routeHead("SYNRA Changelog — Documentation","The official changelog for the SYNRA website and documentation.","/docs/changelog"),component:ChangelogDoc});

@@ -10,33 +10,254 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as R404RouteImport } from './routes/404'
+import { Route as DocsRouteImport } from './routes/docs'
+import { Route as GridRouteImport } from './routes/grid'
+import { Route as DocsIndexRouteImport } from './routes/docs.index'
+import { Route as DocsArcRouteImport } from './routes/docs.arc'
+import { Route as DocsChangelogRouteImport } from './routes/docs.changelog'
+import { Route as DocsDisclaimerRouteImport } from './routes/docs.disclaimer'
+import { Route as DocsFaqRouteImport } from './routes/docs.faq'
+import { Route as DocsFinancialGridRouteImport } from './routes/docs.financial-grid'
+import { Route as DocsFlowRouteImport } from './routes/docs.flow'
+import { Route as DocsLoreRouteImport } from './routes/docs.lore'
+import { Route as DocsMarketRouteImport } from './routes/docs.market'
+import { Route as DocsOverviewRouteImport } from './routes/docs.overview'
+import { Route as DocsPayRouteImport } from './routes/docs.pay'
+import { Route as DocsRoadmapRouteImport } from './routes/docs.roadmap'
+import { Route as DocsTokenRouteImport } from './routes/docs.token'
+import { Route as DocsVaultRouteImport } from './routes/docs.vault'
+import { Route as DocsVisionRouteImport } from './routes/docs.vision'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const R404Route = R404RouteImport.update({
+  id: '/404',
+  path: '/404',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocsRoute = DocsRouteImport.update({
+  id: '/docs',
+  path: '/docs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GridRoute = GridRouteImport.update({
+  id: '/grid',
+  path: '/grid',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocsIndexRoute = DocsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DocsRoute,
+} as any)
+const DocsArcRoute = DocsArcRouteImport.update({
+  id: '/arc',
+  path: '/arc',
+  getParentRoute: () => DocsRoute,
+} as any)
+const DocsChangelogRoute = DocsChangelogRouteImport.update({
+  id: '/changelog',
+  path: '/changelog',
+  getParentRoute: () => DocsRoute,
+} as any)
+const DocsDisclaimerRoute = DocsDisclaimerRouteImport.update({
+  id: '/disclaimer',
+  path: '/disclaimer',
+  getParentRoute: () => DocsRoute,
+} as any)
+const DocsFaqRoute = DocsFaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => DocsRoute,
+} as any)
+const DocsFinancialGridRoute = DocsFinancialGridRouteImport.update({
+  id: '/financial-grid',
+  path: '/financial-grid',
+  getParentRoute: () => DocsRoute,
+} as any)
+const DocsFlowRoute = DocsFlowRouteImport.update({
+  id: '/flow',
+  path: '/flow',
+  getParentRoute: () => DocsRoute,
+} as any)
+const DocsLoreRoute = DocsLoreRouteImport.update({
+  id: '/lore',
+  path: '/lore',
+  getParentRoute: () => DocsRoute,
+} as any)
+const DocsMarketRoute = DocsMarketRouteImport.update({
+  id: '/market',
+  path: '/market',
+  getParentRoute: () => DocsRoute,
+} as any)
+const DocsOverviewRoute = DocsOverviewRouteImport.update({
+  id: '/overview',
+  path: '/overview',
+  getParentRoute: () => DocsRoute,
+} as any)
+const DocsPayRoute = DocsPayRouteImport.update({
+  id: '/pay',
+  path: '/pay',
+  getParentRoute: () => DocsRoute,
+} as any)
+const DocsRoadmapRoute = DocsRoadmapRouteImport.update({
+  id: '/roadmap',
+  path: '/roadmap',
+  getParentRoute: () => DocsRoute,
+} as any)
+const DocsTokenRoute = DocsTokenRouteImport.update({
+  id: '/token',
+  path: '/token',
+  getParentRoute: () => DocsRoute,
+} as any)
+const DocsVaultRoute = DocsVaultRouteImport.update({
+  id: '/vault',
+  path: '/vault',
+  getParentRoute: () => DocsRoute,
+} as any)
+const DocsVisionRoute = DocsVisionRouteImport.update({
+  id: '/vision',
+  path: '/vision',
+  getParentRoute: () => DocsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/404': typeof R404Route
+  '/docs': typeof DocsRouteWithChildren
+  '/grid': typeof GridRoute
+  '/docs/arc': typeof DocsArcRoute
+  '/docs/changelog': typeof DocsChangelogRoute
+  '/docs/disclaimer': typeof DocsDisclaimerRoute
+  '/docs/faq': typeof DocsFaqRoute
+  '/docs/financial-grid': typeof DocsFinancialGridRoute
+  '/docs/flow': typeof DocsFlowRoute
+  '/docs/lore': typeof DocsLoreRoute
+  '/docs/market': typeof DocsMarketRoute
+  '/docs/overview': typeof DocsOverviewRoute
+  '/docs/pay': typeof DocsPayRoute
+  '/docs/roadmap': typeof DocsRoadmapRoute
+  '/docs/token': typeof DocsTokenRoute
+  '/docs/vault': typeof DocsVaultRoute
+  '/docs/vision': typeof DocsVisionRoute
+  '/docs/': typeof DocsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/404': typeof R404Route
+  '/grid': typeof GridRoute
+  '/docs/arc': typeof DocsArcRoute
+  '/docs/changelog': typeof DocsChangelogRoute
+  '/docs/disclaimer': typeof DocsDisclaimerRoute
+  '/docs/faq': typeof DocsFaqRoute
+  '/docs/financial-grid': typeof DocsFinancialGridRoute
+  '/docs/flow': typeof DocsFlowRoute
+  '/docs/lore': typeof DocsLoreRoute
+  '/docs/market': typeof DocsMarketRoute
+  '/docs/overview': typeof DocsOverviewRoute
+  '/docs/pay': typeof DocsPayRoute
+  '/docs/roadmap': typeof DocsRoadmapRoute
+  '/docs/token': typeof DocsTokenRoute
+  '/docs/vault': typeof DocsVaultRoute
+  '/docs/vision': typeof DocsVisionRoute
+  '/docs': typeof DocsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/404': typeof R404Route
+  '/docs': typeof DocsRouteWithChildren
+  '/grid': typeof GridRoute
+  '/docs/arc': typeof DocsArcRoute
+  '/docs/changelog': typeof DocsChangelogRoute
+  '/docs/disclaimer': typeof DocsDisclaimerRoute
+  '/docs/faq': typeof DocsFaqRoute
+  '/docs/financial-grid': typeof DocsFinancialGridRoute
+  '/docs/flow': typeof DocsFlowRoute
+  '/docs/lore': typeof DocsLoreRoute
+  '/docs/market': typeof DocsMarketRoute
+  '/docs/overview': typeof DocsOverviewRoute
+  '/docs/pay': typeof DocsPayRoute
+  '/docs/roadmap': typeof DocsRoadmapRoute
+  '/docs/token': typeof DocsTokenRoute
+  '/docs/vault': typeof DocsVaultRoute
+  '/docs/vision': typeof DocsVisionRoute
+  '/docs/': typeof DocsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/404'
+    | '/docs'
+    | '/grid'
+    | '/docs/arc'
+    | '/docs/changelog'
+    | '/docs/disclaimer'
+    | '/docs/faq'
+    | '/docs/financial-grid'
+    | '/docs/flow'
+    | '/docs/lore'
+    | '/docs/market'
+    | '/docs/overview'
+    | '/docs/pay'
+    | '/docs/roadmap'
+    | '/docs/token'
+    | '/docs/vault'
+    | '/docs/vision'
+    | '/docs/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/404'
+    | '/grid'
+    | '/docs/arc'
+    | '/docs/changelog'
+    | '/docs/disclaimer'
+    | '/docs/faq'
+    | '/docs/financial-grid'
+    | '/docs/flow'
+    | '/docs/lore'
+    | '/docs/market'
+    | '/docs/overview'
+    | '/docs/pay'
+    | '/docs/roadmap'
+    | '/docs/token'
+    | '/docs/vault'
+    | '/docs/vision'
+    | '/docs'
+  id:
+    | '__root__'
+    | '/'
+    | '/404'
+    | '/docs'
+    | '/grid'
+    | '/docs/arc'
+    | '/docs/changelog'
+    | '/docs/disclaimer'
+    | '/docs/faq'
+    | '/docs/financial-grid'
+    | '/docs/flow'
+    | '/docs/lore'
+    | '/docs/market'
+    | '/docs/overview'
+    | '/docs/pay'
+    | '/docs/roadmap'
+    | '/docs/token'
+    | '/docs/vault'
+    | '/docs/vision'
+    | '/docs/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  R404Route: typeof R404Route
+  DocsRoute: typeof DocsRouteWithChildren
+  GridRoute: typeof GridRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +269,178 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/404': {
+      id: '/404'
+      path: '/404'
+      fullPath: '/404'
+      preLoaderRoute: typeof R404RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/docs': {
+      id: '/docs'
+      path: '/docs'
+      fullPath: '/docs'
+      preLoaderRoute: typeof DocsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/grid': {
+      id: '/grid'
+      path: '/grid'
+      fullPath: '/grid'
+      preLoaderRoute: typeof GridRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/docs/': {
+      id: '/docs/'
+      path: '/'
+      fullPath: '/docs/'
+      preLoaderRoute: typeof DocsIndexRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/docs/arc': {
+      id: '/docs/arc'
+      path: '/arc'
+      fullPath: '/docs/arc'
+      preLoaderRoute: typeof DocsArcRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/docs/changelog': {
+      id: '/docs/changelog'
+      path: '/changelog'
+      fullPath: '/docs/changelog'
+      preLoaderRoute: typeof DocsChangelogRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/docs/disclaimer': {
+      id: '/docs/disclaimer'
+      path: '/disclaimer'
+      fullPath: '/docs/disclaimer'
+      preLoaderRoute: typeof DocsDisclaimerRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/docs/faq': {
+      id: '/docs/faq'
+      path: '/faq'
+      fullPath: '/docs/faq'
+      preLoaderRoute: typeof DocsFaqRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/docs/financial-grid': {
+      id: '/docs/financial-grid'
+      path: '/financial-grid'
+      fullPath: '/docs/financial-grid'
+      preLoaderRoute: typeof DocsFinancialGridRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/docs/flow': {
+      id: '/docs/flow'
+      path: '/flow'
+      fullPath: '/docs/flow'
+      preLoaderRoute: typeof DocsFlowRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/docs/lore': {
+      id: '/docs/lore'
+      path: '/lore'
+      fullPath: '/docs/lore'
+      preLoaderRoute: typeof DocsLoreRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/docs/market': {
+      id: '/docs/market'
+      path: '/market'
+      fullPath: '/docs/market'
+      preLoaderRoute: typeof DocsMarketRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/docs/overview': {
+      id: '/docs/overview'
+      path: '/overview'
+      fullPath: '/docs/overview'
+      preLoaderRoute: typeof DocsOverviewRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/docs/pay': {
+      id: '/docs/pay'
+      path: '/pay'
+      fullPath: '/docs/pay'
+      preLoaderRoute: typeof DocsPayRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/docs/roadmap': {
+      id: '/docs/roadmap'
+      path: '/roadmap'
+      fullPath: '/docs/roadmap'
+      preLoaderRoute: typeof DocsRoadmapRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/docs/token': {
+      id: '/docs/token'
+      path: '/token'
+      fullPath: '/docs/token'
+      preLoaderRoute: typeof DocsTokenRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/docs/vault': {
+      id: '/docs/vault'
+      path: '/vault'
+      fullPath: '/docs/vault'
+      preLoaderRoute: typeof DocsVaultRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/docs/vision': {
+      id: '/docs/vision'
+      path: '/vision'
+      fullPath: '/docs/vision'
+      preLoaderRoute: typeof DocsVisionRouteImport
+      parentRoute: typeof DocsRoute
+    }
   }
 }
 
+interface DocsRouteChildren {
+  DocsArcRoute: typeof DocsArcRoute
+  DocsChangelogRoute: typeof DocsChangelogRoute
+  DocsDisclaimerRoute: typeof DocsDisclaimerRoute
+  DocsFaqRoute: typeof DocsFaqRoute
+  DocsFinancialGridRoute: typeof DocsFinancialGridRoute
+  DocsFlowRoute: typeof DocsFlowRoute
+  DocsLoreRoute: typeof DocsLoreRoute
+  DocsMarketRoute: typeof DocsMarketRoute
+  DocsOverviewRoute: typeof DocsOverviewRoute
+  DocsPayRoute: typeof DocsPayRoute
+  DocsRoadmapRoute: typeof DocsRoadmapRoute
+  DocsTokenRoute: typeof DocsTokenRoute
+  DocsVaultRoute: typeof DocsVaultRoute
+  DocsVisionRoute: typeof DocsVisionRoute
+  DocsIndexRoute: typeof DocsIndexRoute
+}
+
+const DocsRouteChildren: DocsRouteChildren = {
+  DocsArcRoute: DocsArcRoute,
+  DocsChangelogRoute: DocsChangelogRoute,
+  DocsDisclaimerRoute: DocsDisclaimerRoute,
+  DocsFaqRoute: DocsFaqRoute,
+  DocsFinancialGridRoute: DocsFinancialGridRoute,
+  DocsFlowRoute: DocsFlowRoute,
+  DocsLoreRoute: DocsLoreRoute,
+  DocsMarketRoute: DocsMarketRoute,
+  DocsOverviewRoute: DocsOverviewRoute,
+  DocsPayRoute: DocsPayRoute,
+  DocsRoadmapRoute: DocsRoadmapRoute,
+  DocsTokenRoute: DocsTokenRoute,
+  DocsVaultRoute: DocsVaultRoute,
+  DocsVisionRoute: DocsVisionRoute,
+  DocsIndexRoute: DocsIndexRoute,
+}
+
+const DocsRouteWithChildren = DocsRoute._addFileChildren(DocsRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  R404Route: R404Route,
+  DocsRoute: DocsRouteWithChildren,
+  GridRoute: GridRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,0 +1,2 @@
+import { createFileRoute } from "@tanstack/react-router"; import { RoadmapDoc } from "@/components/doc-pages"; import { routeHead } from "@/lib/synra";
+export const Route=createFileRoute("/docs/roadmap")({head:()=>routeHead("SYNRA Roadmap — Documentation","Explore the SYNRA foundation, Grid, product, ecosystem and expansion roadmap.","/docs/roadmap"),component:RoadmapDoc});

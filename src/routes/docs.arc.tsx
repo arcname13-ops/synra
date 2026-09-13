@@ -1,0 +1,2 @@
+import { createFileRoute } from "@tanstack/react-router"; import { ArcDoc } from "@/components/doc-pages"; import { routeHead } from "@/lib/synra";
+export const Route=createFileRoute("/docs/arc")({head:()=>routeHead("SYNRA × ARC — Documentation","Understand Arc's relevance to stablecoin-native finance and SYNRA's independent relationship to the ecosystem.","/docs/arc"),component:ArcDoc});

@@ -1,0 +1,2 @@
+import { createFileRoute } from "@tanstack/react-router"; import { LoreDoc } from "@/components/doc-pages"; import { routeHead } from "@/lib/synra";
+export const Route=createFileRoute("/docs/lore")({head:()=>routeHead("The SYNRA Lore — Documentation","Discover the story behind SYNRA and the evolution toward programmable financial infrastructure.","/docs/lore"),component:LoreDoc});

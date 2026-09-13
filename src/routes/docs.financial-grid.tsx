@@ -1,0 +1,2 @@
+import { createFileRoute } from "@tanstack/react-router"; import { FinancialGridDoc } from "@/components/doc-pages"; import { routeHead } from "@/lib/synra";
+export const Route=createFileRoute("/docs/financial-grid")({head:()=>routeHead("The Financial Grid — SYNRA Documentation","Explore the conceptual layers connecting value, payments, settlement, liquidity, markets and capital.","/docs/financial-grid"),component:FinancialGridDoc});

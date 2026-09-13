@@ -1,0 +1,2 @@
+import { createFileRoute } from "@tanstack/react-router"; import { FaqDoc } from "@/components/doc-pages"; import { routeHead } from "@/lib/synra";
+export const Route=createFileRoute("/docs/faq")({head:()=>routeHead("SYNRA FAQ — Documentation","Factual answers about SYNRA, the Financial Grid, Arc, planned modules and $SYNRA.","/docs/faq"),component:FaqDoc});

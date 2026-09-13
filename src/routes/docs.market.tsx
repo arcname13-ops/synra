@@ -1,0 +1,2 @@
+import { createFileRoute } from "@tanstack/react-router"; import { ModuleDoc } from "@/components/doc-pages"; import { routeHead } from "@/lib/synra";
+export const Route=createFileRoute("/docs/market")({head:()=>routeHead("SYNRA MARKET — Documentation","The planned SYNRA layer for onchain markets, digital assets and financial opportunities.","/docs/market"),component:()=> <ModuleDoc kind="market"/>});

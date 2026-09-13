@@ -1,0 +1,2 @@
+import { createFileRoute } from "@tanstack/react-router"; import { ModuleDoc } from "@/components/doc-pages"; import { routeHead } from "@/lib/synra";
+export const Route=createFileRoute("/docs/vault")({head:()=>routeHead("SYNRA VAULT — Documentation","The planned SYNRA capital management and digital asset layer.","/docs/vault"),component:()=> <ModuleDoc kind="vault"/>});
