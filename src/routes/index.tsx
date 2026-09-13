@@ -1,24 +1,25 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
+import banner from "@/assets/synban.png";
+import logo from "@/assets/synra.png";
+import { Button } from "@/components/ui/button";
+import { FinancialGrid } from "@/components/financial-grid";
+import { LINKS, META, MODULES, routeHead } from "@/lib/synra";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+export const Route = createFileRoute("/")({ head:()=>routeHead(META.title,META.description,"/"), component:Home });
+const pillars=[['PAY','Move value.'],['TRADE','Access markets.'],['BUILD','Create applications.'],['GROW','Expand capital and liquidity.'],['BELONG','Participate in an open economy.']];
+const principles=[['GLOBAL','Financial infrastructure designed for a connected digital economy.'],['PROGRAMMABLE','Value can interact with software and applications.'],['CONNECTED','Payments, liquidity, markets and capital can operate within a connected architecture.'],['COMPOSABLE','Financial components can interact and build upon one another.'],['TRANSPARENT','Onchain infrastructure enables verifiable activity.'],['OPEN','A more open financial environment.']];
+const phases=[['01','FOUNDATION',['Website','Brand','Documentation','Community'],'IN DEVELOPMENT'],['02','GRID',['Architecture','Core ecosystem development','Financial Grid'],'IN DEVELOPMENT'],['03','PRODUCT',['PAY','FLOW','MARKET','VAULT'],'PLANNED'],['04','ECOSYSTEM',['Applications','Liquidity','Markets','Integrations'],'PLANNED'],['05','EXPANSION',['New financial primitives','Global ecosystem','Future integrations'],'VISION']];
+function Home(){return <>
+  <section className="hero"><img src={banner} alt="SYNRA financial infrastructure extending across a connected global landscape" className="hero-bg" fetchPriority="high"/><div className="hero-content"><div><span className="eyebrow">BUILT ON ARC · SYNCHRONIZED VALUE RAILS</span><h1>SYNRA<span>THE FINANCIAL GRID</span></h1><p className="hero-copy">A programmable financial network built for the next generation of digital value.</p><div className="cta-row"><Button asChild size="lg"><a href={LINKS.ARGUSPAD_URL} target="_blank" rel="noreferrer">BUY $SYNRA <ArrowRight/></a></Button><Button asChild size="lg" variant="outline"><Link to="/grid">EXPLORE THE GRID</Link></Button><Button asChild size="lg" variant="ghost"><Link to="/docs">READ THE DOCS</Link></Button></div></div><div className="status-panel"><div className="panel-header"><span>SYSTEM STATUS</span><i/></div><div className="status-grid"><div><span>NETWORK</span><strong>ARC</strong></div><div><span>ASSET</span><strong>$SYNRA</strong></div><div><span>CONTRACT</span><strong>COMING SOON</strong></div><div><span>STATUS</span><strong>BUILDING</strong></div></div></div><div className="hero-footer"><span>VALUE, SYNCHRONIZED.</span><span>A MORE OPEN ECONOMY.</span></div></div></section>
+  <section className="section section-dark statement"><span className="eyebrow">A CONNECTED ECONOMY</span><h2><span>THE INTERNET CONNECTED PEOPLE.</span><span>STABLECOINS CONNECTED MONEY.</span><span>SYNRA CONNECTS THE ECONOMY.</span></h2></section>
+  <section className="section section-graphite split"><div className="split-copy"><span className="eyebrow">01 · INFRASTRUCTURE</span><h2>WHAT IS SYNRA?</h2><p>SYNRA is a financial infrastructure concept built around connected value rails. It explores how payments, liquidity, markets, capital and digital assets can interact through programmable infrastructure.</p><p className="objective">The objective is simple: make financial connectivity feel native to the internet.</p></div><div className="metallic-core" aria-label="Abstract synchronized value rail structure"><div className="core-sculpture">S</div></div></section>
+  <section className="section section-dark"><div className="section-heading"><span className="eyebrow">02 · CONNECTED ARCHITECTURE</span><h2>THE FINANCIAL GRID</h2><p>A connected financial architecture where value can move between payments, liquidity, markets, capital and applications.</p></div><FinancialGrid/></section>
+  <section className="section section-graphite"><div className="section-heading"><span className="eyebrow">03 · ECOSYSTEM</span><h2>ONE GRID.<br/>MANY POSSIBILITIES.</h2></div><div className="module-list">{MODULES.map((m,i)=><div className="module-row" key={m.key}><span className="module-num">0{i+1}</span><h3>{m.title}<span>{m.action}</span></h3><p>{m.description}</p><span className="status-label">{m.status}</span></div>)}</div></section>
+  <section className="section section-dark"><div className="section-heading"><span className="eyebrow">04 · THE SYNRA PHILOSOPHY</span><h2>VALUE,<br/>SYNCHRONIZED.</h2></div><div className="pillar-grid">{pillars.map(([a,b])=><div className="pillar" key={a}><b>{a}</b><p>{b}</p></div>)}</div></section>
+  <section className="section section-graphite"><div className="section-heading"><span className="eyebrow">05 · WHY SYNRA</span><h2>BUILT FOR CONNECTED VALUE.</h2></div><div className="principle-grid">{principles.map(([a,b])=><div className="principle" key={a}><h3>{a}</h3><p>{b}</p></div>)}</div></section>
+  <section className="section arc-band"><div><span className="eyebrow">06 · NETWORK</span><h2>BUILT ON ARC</h2><p><strong>A foundation for stablecoin-native financial infrastructure.</strong></p><p>Arc is developed by Circle and is positioned as a blockchain designed specifically for stablecoin finance. SYNRA is an independent project and is not an official Circle or Arc product.</p><Button asChild variant="outline"><a href={LINKS.ARC_URL} target="_blank" rel="noreferrer">EXPLORE ARC <ArrowRight/></a></Button></div><div className="concept-list">{['USDC-NATIVE GAS','STABLECOIN INFRASTRUCTURE','DETERMINISTIC FINALITY','EVM COMPATIBILITY','PAYMENTS','CAPITAL MARKETS','FX','TOKENIZATION','SETTLEMENT'].map(x=><span key={x}>{x}</span>)}</div></section>
+  <section className="section section-dark"><div className="token-terminal"><div className="token-brand"><img src={logo} alt="Official SYNRA logo" loading="lazy"/><div><span className="eyebrow">NATIVE ASSET</span><h2>$SYNRA</h2></div></div><div className="token-data"><div className="section-heading"><h2>THE NATIVE ASSET OF THE SYNRA ECOSYSTEM.</h2></div><div className="token-grid"><div><span>SYMBOL</span><strong>$SYNRA</strong></div><div><span>NETWORK</span><strong>ARC</strong></div><div><span>CONTRACT</span><strong>COMING SOON</strong></div><div><span>TOKENOMICS</span><strong>COMING SOON</strong></div><div><span>UTILITY</span><strong>COMING SOON</strong></div></div><div className="cta-row mt-8"><Button asChild><a href={LINKS.ARGUSPAD_URL} target="_blank" rel="noreferrer">BUY $SYNRA</a></Button><Button asChild variant="outline"><a href={LINKS.ARGUSPAD_URL} target="_blank" rel="noreferrer">CHART</a></Button></div></div></div></section>
+  <section className="section section-graphite"><div className="section-heading"><span className="eyebrow">07 · ROADMAP</span><h2>THE ROAD AHEAD</h2></div><div className="timeline">{phases.map(([n,t,items,s])=><div className="phase" key={String(n)}><span>PHASE {n}</span><h3>{t}</h3><ul>{(items as string[]).map(x=><li key={x}>{x}</li>)}</ul><span className="status-label">{s}</span></div>)}</div></section>
+  <section className="section section-dark follow-grid"><span className="eyebrow">OFFICIAL CHANNEL</span><h2>FOLLOW THE GRID</h2><p>Follow SYNRA on X for launches, updates, ecosystem developments and the next chapters of the Financial Grid.</p><Button asChild size="lg"><a href={LINKS.X_URL} target="_blank" rel="noreferrer">FOLLOW ON X <ArrowRight/></a></Button></section>
+  </>}
