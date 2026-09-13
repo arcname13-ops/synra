@@ -28,6 +28,7 @@ import { Route as DocsRoadmapRouteImport } from './routes/docs.roadmap'
 import { Route as DocsTokenRouteImport } from './routes/docs.token'
 import { Route as DocsVaultRouteImport } from './routes/docs.vault'
 import { Route as DocsVisionRouteImport } from './routes/docs.vision'
+import { Route as ModulesModuleRouteImport } from './routes/modules.$module'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -124,6 +125,11 @@ const DocsVisionRoute = DocsVisionRouteImport.update({
   path: '/vision',
   getParentRoute: () => DocsRoute,
 } as any)
+const ModulesModuleRoute = ModulesModuleRouteImport.update({
+  id: '/modules/$module',
+  path: '/modules/$module',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -144,6 +150,7 @@ export interface FileRoutesByFullPath {
   '/docs/token': typeof DocsTokenRoute
   '/docs/vault': typeof DocsVaultRoute
   '/docs/vision': typeof DocsVisionRoute
+  '/modules/$module': typeof ModulesModuleRoute
   '/docs/': typeof DocsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -164,6 +171,7 @@ export interface FileRoutesByTo {
   '/docs/token': typeof DocsTokenRoute
   '/docs/vault': typeof DocsVaultRoute
   '/docs/vision': typeof DocsVisionRoute
+  '/modules/$module': typeof ModulesModuleRoute
   '/docs': typeof DocsIndexRoute
 }
 export interface FileRoutesById {
@@ -186,6 +194,7 @@ export interface FileRoutesById {
   '/docs/token': typeof DocsTokenRoute
   '/docs/vault': typeof DocsVaultRoute
   '/docs/vision': typeof DocsVisionRoute
+  '/modules/$module': typeof ModulesModuleRoute
   '/docs/': typeof DocsIndexRoute
 }
 export interface FileRouteTypes {
@@ -209,6 +218,7 @@ export interface FileRouteTypes {
     | '/docs/token'
     | '/docs/vault'
     | '/docs/vision'
+    | '/modules/$module'
     | '/docs/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -229,6 +239,7 @@ export interface FileRouteTypes {
     | '/docs/token'
     | '/docs/vault'
     | '/docs/vision'
+    | '/modules/$module'
     | '/docs'
   id:
     | '__root__'
@@ -250,6 +261,7 @@ export interface FileRouteTypes {
     | '/docs/token'
     | '/docs/vault'
     | '/docs/vision'
+    | '/modules/$module'
     | '/docs/'
   fileRoutesById: FileRoutesById
 }
@@ -258,6 +270,7 @@ export interface RootRouteChildren {
   R404Route: typeof R404Route
   DocsRoute: typeof DocsRouteWithChildren
   GridRoute: typeof GridRoute
+  ModulesModuleRoute: typeof ModulesModuleRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -395,6 +408,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DocsVisionRouteImport
       parentRoute: typeof DocsRoute
     }
+    '/modules/$module': {
+      id: '/modules/$module'
+      path: '/modules/$module'
+      fullPath: '/modules/$module'
+      preLoaderRoute: typeof ModulesModuleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -441,6 +461,7 @@ const rootRouteChildren: RootRouteChildren = {
   R404Route: R404Route,
   DocsRoute: DocsRouteWithChildren,
   GridRoute: GridRoute,
+  ModulesModuleRoute: ModulesModuleRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
