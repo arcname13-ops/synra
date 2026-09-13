@@ -167,3 +167,4 @@ main { min-height:100vh; }
 .module-switch a{background:var(--graphite);padding:22px;display:flex;align-items:center;justify-content:space-between;font:600 11px/1 var(--font-mono);letter-spacing:.16em;transition:.2s}
 .module-switch a:hover{background:var(--charcoal);color:var(--champagne)}
 @media(max-width:760px){.module-page{padding:110px 20px 80px}.module-body{grid-template-columns:1fr;gap:34px;margin-top:48px}.live-metrics{grid-template-columns:1fr}.panel-readout{grid-template-columns:1fr 1fr}.control-modules{grid-template-columns:1fr 1fr 1fr}}
+.control-modules a:last-child{grid-column:1/-1}
