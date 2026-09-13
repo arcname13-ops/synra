@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HeadContent, Link, Outlet, Scripts, createRootRouteWithContext, useRouter } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+import logo from "@/assets/synra.png";
 import { Button } from "@/components/ui/button";
 import { SiteFooter, SiteHeader } from "@/components/brand";
 import appCss from "../styles.css?url";
@@ -18,4 +19,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   shellComponent: RootShell, component: RootComponent, notFoundComponent: NotFoundComponent, errorComponent: ErrorComponent,
 });
 function RootShell({ children }: { children: ReactNode }) { return <html lang="en"><head><HeadContent /></head><body>{children}<Scripts /></body></html>; }
-function RootComponent() { const { queryClient }=Route.useRouteContext(); return <QueryClientProvider client={queryClient}><SiteHeader/><main><Outlet/></main><SiteFooter/></QueryClientProvider>; }
+function RootComponent() { const { queryClient }=Route.useRouteContext(); return <QueryClientProvider client={queryClient}><GridLoader/><SiteHeader/><main><Outlet/></main><SiteFooter/></QueryClientProvider>; }
+
+function GridLoader() {
+  const [visible, setVisible] = useState(true);
+  useEffect(() => { const id = requestAnimationFrame(() => setVisible(false)); return () => cancelAnimationFrame(id); }, []);
+  if (!visible) return null;
+  return <div className="grid-loader" role="status" aria-label="Initializing the SYNRA Grid"><img src={logo} alt=""/><span>INITIALIZING THE GRID...</span><i/></div>;
+}

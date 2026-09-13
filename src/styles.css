@@ -41,6 +41,7 @@ a { color: inherit; text-decoration: none; }
 button, a { -webkit-tap-highlight-color: transparent; }
 ::selection { background: var(--champagne); color: var(--obsidian); }
 :focus-visible { outline: 2px solid var(--champagne); outline-offset: 4px; }
+.grid-loader{position:fixed;inset:0;z-index:999;display:grid;place-items:center;align-content:center;gap:20px;background:var(--obsidian)}.grid-loader img{width:96px;height:96px;object-fit:cover;border-radius:50%}.grid-loader span{font:500 9px/1 var(--font-mono);letter-spacing:.24em;color:var(--champagne)}.grid-loader i{width:110px;height:28px;border:1px solid var(--bronze);border-radius:50%;animation:orbit 1.5s linear infinite}
 
 .site-header { position:fixed; inset:0 0 auto; z-index:50; transition:.4s ease; }
 .site-header.is-scrolled { background:color-mix(in oklab,var(--obsidian) 88%,transparent); backdrop-filter:blur(18px); border-bottom:1px solid color-mix(in oklab,var(--champagne) 18%,transparent); }
